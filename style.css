@@ -1,0 +1,259 @@
+body {
+  background: #f8f9fa;
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero {
+  height: 80vh;
+  background: linear-gradient(to right, #000000cc, #00000088),
+    url("https://source.unsplash.com/1600x900/?sports-car") center/cover;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* --- Card Styling --- */
+.card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Bouncy effect */
+  border-radius: 15px;
+  /* Softer corners */
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+  /* Stronger shadow on hover */
+}
+
+/* --- Form Elements Styling --- */
+.form-control,
+.form-select {
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 12px;
+  transition: all 0.3s ease-in-out;
+  background-color: #fcfcfc;
+}
+
+.form-control:hover,
+.form-select:hover {
+  border-color: #ced4da;
+  background-color: #fff;
+  transform: translateY(-2px);
+  /* Subtle lift */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #ffc107;
+  /* Warning color to match brand */
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+  background-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* --- Button Styling --- */
+.btn {
+  border-radius: 10px;
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-warning {
+  color: #212529;
+  background-color: #ffc107;
+  border-color: #ffc107;
+  font-weight: 700;
+}
+
+.btn-warning:hover {
+  background-color: #ffca2c;
+  border-color: #ffc720;
+}
+
+/* --- Global Animations --- */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.8s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.zoom-in {
+  animation: zoomIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+/* --- Keyframes --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --- Navbar Brand Hover --- */
+.navbar-brand {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* --- Footer Styling --- */
+.footer-link {
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #ffc107 !important;
+  /* Warning color */
+  transform: translateX(5px);
+}
+
+.social-icon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #ffc107;
+  color: #212529;
+  border-color: #ffc107;
+  transform: translateY(-3px);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    /* Reduced height on mobile */
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    /* Smaller heading */
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

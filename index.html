@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Wheels & Deals | Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tailwind (for development only) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #141e30, #243b55);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auth-container {
+      width: 900px;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      display: flex;
+    }
+
+    .auth-left {
+      flex: 1;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://source.unsplash.com/800x800/?luxury-car") center/cover;
+      color: white;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .auth-right {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .toggle-link {
+      cursor: pointer;
+      color: #0d6efd;
+      font-weight: 500;
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="auth-container zoom-in">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left slide-in-left">
+      <h2 class="fw-bold">Wheels & Deals</h2>
+      <p class="mt-3">
+        Buy. Sell. Drive your dream.
+        Experience a modern premium car marketplace.
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+
+      <!-- LOGIN FORM -->
+      <div id="loginSection" class="form-section active">
+        <h3 class="mb-4">Login</h3>
+
+        <input type="email" id="loginEmail" class="form-control mb-3" placeholder="Email">
+        <input type="password" id="loginPassword" class="form-control mb-3" placeholder="Password">
+
+        <button class="btn btn-primary w-100 mb-3" onclick="login()">Login</button>
+
+        <p class="text-center">
+          Don't have an account?
+          <span class="toggle-link" onclick="showSignup()">Sign Up</span>
+        </p>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div id="signupSection" class="form-section">
+        <h3 class="mb-4">Sign Up</h3>
+
+        <input type="text" id="signupName" class="form-control mb-3" placeholder="Full Name">
+        <input type="email" id="signupEmail" class="form-control mb-3" placeholder="Email">
+        <input type="password" id="signupPassword" class="form-control mb-3" placeholder="Password">
+
+        <button class="btn btn-success w-100 mb-3" onclick="signup()">Sign Up</button>
+
+        <p class="text-center">
+          Already have an account?
+          <span class="toggle-link" onclick="showLogin()">Login</span>
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/database.js"></script>
+  <script src="js/auth.js"></script>
+
+
+  <script>
+    function showSignup() {
+      loginSection.classList.remove("active");
+      signupSection.classList.add("active");
+    }
+
+    function showLogin() {
+      signupSection.classList.remove("active");
+      loginSection.classList.add("active");
+    }
+
+    if (localStorage.getItem("loggedIn") === "true") {
+      window.location.href = "home.html";
+    }
+
+  </script>
+
+</body>
+
+</html>

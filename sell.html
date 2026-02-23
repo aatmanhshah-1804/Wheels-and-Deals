@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Car | Wheels & Deals</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-light">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-warning" href="home.html">
+        Wheels & Deals
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="browse.html">Browse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="sell.html">Sell</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="wishlist.html">
+              Wishlist
+              <span id="wishlistCount"
+                class="badge bg-danger text-white rounded-pill position-absolute top-0 start-100 translate-middle">
+                0
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-danger ms-2" onclick="logout()">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= SELL FORM SECTION ================= -->
+  <section class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Sell Your Car</h2>
+      <p class="text-muted">List your vehicle and connect with thousands of buyers instantly.</p>
+    </div>
+
+    <div class="card shadow-lg border-0 p-4 zoom-in" style="animation-delay: 0.2s;">
+      <form id="sellForm">
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <label class="form-label">Car Brand</label>
+            <select class="form-select" id="brand" required>
+              <option value="" selected disabled>Select Brand</option>
+              <!-- Brands will be populated by JS -->
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Model</label>
+            <select class="form-select" id="model" required disabled>
+              <option value="" selected disabled>Select Model</option>
+              <!-- Models will be populated by JS -->
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Year</label>
+            <select class="form-select" id="year" required>
+              <option value="" selected disabled>Select Year</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Price ($)</label>
+            <input type="number" class="form-control" id="price" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Fuel Type</label>
+            <select class="form-select" id="fuel">
+              <option>Petrol</option>
+              <option>Diesel</option>
+              <option>Electric</option>
+              <option>Hybrid</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="image">
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" rows="3" id="description"></textarea>
+          </div>
+
+          <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn btn-warning px-5 fw-bold shadow">
+              List My Car
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= SUCCESS MODAL ================= -->
+  <div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Success!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          Your car has been listed successfully 🚗
+        </div>
+        <div class="modal-footer">
+          <a href="browse.html" class="btn btn-success">View Listings</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p class="mb-0">© 2026 Wheels & Deals | Designed by Aatman,Yash,Laksh </p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Required JS Files -->
+  <script src="js/database.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/sell.js"></script>
+  <script src="js/auth.js"></script>
+
+</body>
+
+</html>
